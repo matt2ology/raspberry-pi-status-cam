@@ -9,7 +9,7 @@ hands = mp_hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7
 # Start video capture
 cap = cv2.VideoCapture(0)
 
-# Set resolution to 1280x720
+# Set resolution
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
@@ -54,7 +54,7 @@ while cap.isOpened():
 
     # Display message on screen
     if message:
-        cv2.putText(frame, message, (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 255, 0), 3)
+        cv2.putText(frame, message, (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), 3)
 
     cv2.imshow("Hand Gesture Recognition", frame)
 
