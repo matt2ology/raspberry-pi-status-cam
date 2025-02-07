@@ -34,6 +34,14 @@ def classify_hand_gesture(landmarks):
         thumb_tip > wrist):
         return "That's not nice"
 
+    # Detect peace sign (index and middle fingers extended, others curled)
+    if (index_tip < wrist and 
+        middle_tip < wrist and 
+        ring_tip > wrist and 
+        pinky_tip > wrist and 
+        thumb_tip > wrist):
+        return "Peace, not war!"
+
     # Open palm: All fingers are extended
     if all(tip < wrist for tip in [index_tip, middle_tip, ring_tip, pinky_tip]):
         return "Hello, friend"
