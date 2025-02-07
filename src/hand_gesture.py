@@ -25,6 +25,15 @@ def classify_hand_gesture(landmarks):
     pinky_tip = landmarks[20].y
     wrist = landmarks[0].y
 
+ # Detect middle finger extended while others are curled
+    # Only the middle finger is extended above the wrist, and all other fingers are curled below
+    if (middle_tip < wrist and 
+        index_tip > wrist and 
+        ring_tip > wrist and 
+        pinky_tip > wrist and 
+        thumb_tip > wrist):
+        return "That's not nice"
+
     # Open palm: All fingers are extended
     if all(tip < wrist for tip in [index_tip, middle_tip, ring_tip, pinky_tip]):
         return "Hello, friend"
